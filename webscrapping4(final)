@@ -1,0 +1,28 @@
+import requests
+# module qui permet d'envoyer une requête au serveur pour pouvoir exploiter le site
+from bs4 import BeautifulSoup
+#permet d'extraire le code html
+
+url = 'https://www.francefootball.fr/news/Ligue-1-le-calendrier-complet-de-la-saison-2020-21/1151049'
+#lien du site
+
+
+renvoi = requests.get(url);
+
+
+#prend les informations du site grâce à l'url
+
+
+
+if renvoi.ok:
+    #.ok = si on a un code [200] = pas d'erreur
+    yani = BeautifulSoup(renvoi.text)
+    #prendre le html du renvoi
+    y = yani.find("div", {"class":"paragraph"})
+    #prendre le div class "paragraph"
+    print(y.text)
+    #et l'afficher
+
+
+
+
