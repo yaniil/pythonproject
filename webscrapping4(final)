@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 #permet d'extraire le code html
 
-url = 'https://www.francefootball.fr/news/Ligue-1-le-calendrier-complet-de-la-saison-2020-21/1151049'
+url = 'http://www.maxifoot.fr/calendrier-ligue-1-france.htm'
 #lien du site
 
 
@@ -18,8 +18,8 @@ if renvoi.ok:
     #.ok = si on a un code [200] = pas d'erreur
     yani = BeautifulSoup(renvoi.text)
     #prendre le html du renvoi
-    y = yani.find("div", {"class":"paragraph"})
-    #prendre le div class "paragraph"
+    y = yani.find("div", {"class":"cald1"})
+    #prendre le div class "cald1"
     print(y.text)
     #et l'afficher
 
